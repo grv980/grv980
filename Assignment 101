@@ -1,0 +1,118 @@
+- 👋 Hi, I’m @grv980
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+<!---
+grv980/grv980 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+1]How do we identify child process & parent process using command & how do we interpret whether child has a relation with the parent from the output?
+Answer - pstree -p
+
+
+2]How do you list all the files of a directory without listing . & .. on the output?
+Answer - echo *
+
+3]List the command to check whether a process is multi threaded or single threaded?
+Answer - Following are the commands to check whether a process is multi threaded or single threaded - 
+1. ps-wc
+2. /proc/<PID>/task/
+3.ps -elf
+4.pstree -p 
+5.top 
+  
+4]A file is getting updated in real time on the server( having linux distribution), which is probably a log file, how do we check the updated content of the file in real time?
+ Answer - echo "hello+$run" >> test.txt
+ tail test.txt
+ hello+
+  
+5]What are the different commands to copy a file from one location to another, give with example?
+  Answer - cp -r linux1 linux2
+  
+ 6]print only the value of the memory on the output which can be used by new applications to be executed without the need of swapping.
+(Note: only the value of such memory is expected in the output)
+  
+ Answer - free -m
+ 
+ 
+7] "Unix stands for UNiplexed Information and Computing Service, Unix is written in C"
+
+Use the above string to append it to a file ( say sample.txt) 10 times & then print the number of occurrences of "Unix word" in that file.
+
+Note: Append operation of above string for 10 times should happen in one go. (do not repeatedly execute the same command)
+Output should only display number of occurrences of Unix
+Entire question should be executed as a part of single execution of command(s)
+
+Answer - savera@savera:~/Desktop$ echo UnixstandsforUNiplexedInformationandComputingService,UnixiswritteninC$wojek{1..10}>>test2.txt | wc -w "unix" test2.txt
+wc: unix: No such file or directory
+ 10 test2.txt
+ 10 total
+
+8]Create below directory structure in a single execution of command
+
+p0
+├── p1
+│   └── p2
+│       ├── p3
+│       │   └── p5
+│       │       └── p9
+│       └── p4
+│           └── p5
+│               └── p9
+└── p6
+    ├── p7
+    │   └── p9
+    └── p8
+        └── p9
+       Answer - mkdir -p p0/p1/p2{p3,p5,p9}/p2{p4,p5,p9}/p6{p7,p9}/p6{p8,p9}
+
+       
+       
+9] Copy the file used in Question#7 (i.e. sample.txt) to p9 directory(s) of Question#8
+As there are multiple p9 directories so sample.txt should exist inside all those p9 directories.
+Write command for above question where copy operation should take place in single execution of command.
+Verify your output using tree p0 command      
+       
+       Answer - cp sample.txt Desktop p9 
+       
+       
+       
+10] You have to correct the string mentioned in Question#7 in all the files where it exists
+We want to replace "stands" word in the string to "abbreviates"
+Note: This change should happen in all the files representing sample.txt in single execution of command.
+       
+       Answer - sed 's/stands/abbreviates/g' sample.txt
+UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC UnixabbreviatesforUNiplexedInformationandComputingService,UnixiswritteninC
+
+
+
+11] What is the significance of kill pid & kill -9 pid.
+Where in the linux environment can we get the information about this.
+Be as detailed as possible.
+
+Answer - kill pid
+kill pid is a command which sends signal tells pid to terminate,but program can execute code first also it can ignore the signal.
+
+kill -9 pid is a command which forces the program to terminate immediately and it cannot be ignored.
+
+
+
+
+
+12] list all files in directory except .txt files
+Answer - find -not -iname "*.txt"
+
+
+13] You created a systemd service for running a backend application program & you would like to check the logs of that service to know whether it failed & caused your application to stop.
+Answer - tail -f /var/log/syslog
+       
+       
+ 14] Write answers for above questions in a README.md file
+    Keep that file in a directory of your name(FirstName_LastName).
+    Write a command to create a FirstName_LastName.tar.gz file of your directory
+    
+    
+    Answer - 
+       
